@@ -34,7 +34,8 @@ function setStyle () {
     var css =
     selectors.lastSeen + '{' +
         'position: fixed;' +
-        'bottom: calc((100%-399px)/3);' +
+        'top: 50%;' +
+        'transform: translateY(-50%);' +
         'right: 0;' +
         'width: 133px;' +
         'z-index:100000;' +
@@ -94,7 +95,6 @@ if(!!elementExists){
             lastImages.splice(0, lastImages.length-3);
             lastTitles.splice(0, lastTitles.length-3);
             lastLinks.splice(0, lastLinks.length-3);
-            
         }
 
         localStorage.setItem('images', JSON.stringify(lastImages));
@@ -140,24 +140,5 @@ else{
         });
 
     }
-    else{
-
-        var lastImages = [];
-        var lastTitles = [];
-        var lastLinks = [];
-
-        lastImages.push($('#OptionImage0').attr('src'));
-        lastTitles.push($('.product-title').html());
-        lastLinks.push(window.location.href);
-
-        localStorage.setItem('images', JSON.stringify(lastImages));
-        localStorage.setItem('titles', JSON.stringify(lastTitles));
-        localStorage.setItem('links', JSON.stringify(lastLinks));
-
-        console.log(JSON.parse(localStorage.images));
-
-    }
-
 }
 }
-
